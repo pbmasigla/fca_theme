@@ -36,7 +36,7 @@ Template Name: Eboard Page Template
 
                         }
                     echo '</ul></div>';?>
-                    <h1 class="eboard_year_label">Year 2014-2015</h1>
+                    <h1 class="eboard_year_label">Year 2014-2015 YEAH</h1>
                        <div id="eboard_member">
                         <?php
                         /* 
