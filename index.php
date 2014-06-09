@@ -1,7 +1,7 @@
 <?php
 /**
  * The main template file. Includes the loop.
- *
+ * Kris was here
  *
  * @package Customizr
  * @since Customizr 1.0
