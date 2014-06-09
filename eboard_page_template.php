@@ -7,12 +7,12 @@ Template Name: Eboard Page Template
 <div id="main-wrapper" class="<?php echo tc__f( 'tc_main_wrapper_classes' , 'container' ) ?>">
 
     <?php do_action( '__before_main_container' ); ##hook of the featured page (priority 10) and breadcrumb (priority 20)...and whatever you need! ?>
-
+    
     <div class="container" role="main">
         <div class="<?php echo tc__f( 'tc_column_content_wrapper_classes' , 'row column-content-wrapper' ) ?>">
 
             <?php do_action( '__before_article_container'); ##hook of left sidebar?>
-
+                
                 <div id="content" class="<?php echo tc__f( '__screen_layout' , tc__f ( '__ID' ) , 'class' ) ?> article-container">
                     <?php do_action ('__before_loop');##hooks the header of the list of post : archive, search... ?>
 
@@ -24,14 +24,14 @@ Template Name: Eboard Page Template
                          // echo '<li><a href="javascript:void(0)" title="" data-filter=".all" class="active">All</a></li>';
                         echo '<h1 class="past_boards">Past Boards</h1>';
                          if ( $count > 0 ){
-
+                                    
                             foreach ( $rev_array as $term ) {
-
+                                            
                             $termname = strtolower($term->name);
                             $termname = str_replace(' ', '-', $termname);
 
                             echo '<li><a href="javascript:void(0)" title="" data-filter=".'.$termname.'">'.$term->name.'</a></li>';
-
+                                        
                             }
 
                         }
@@ -39,30 +39,30 @@ Template Name: Eboard Page Template
                     <h1 class="eboard_year_label">Year 2014-2015</h1>
                        <div id="eboard_member">
                         <?php
-                        /*
-                        Query the post
+                        /* 
+                        Query the post 
                         */
                         $args = array( 'post_type' => 'eboard_member', 'posts_per_page' => -1 );
                         $loop = new WP_Query( $args );
-                          while ( $loop->have_posts() ) : $loop->the_post();
-
-                        /*
-                        Pull category for each unique post using the ID
+                          while ( $loop->have_posts() ) : $loop->the_post(); 
+                         
+                        /* 
+                        Pull category for each unique post using the ID 
                         */
-                        $terms = get_the_terms( $post->ID, 'eboard_member_years' );
-                             if ( $terms && ! is_wp_error( $terms ) ) :
-
+                        $terms = get_the_terms( $post->ID, 'eboard_member_years' );    
+                             if ( $terms && ! is_wp_error( $terms ) ) : 
+                         
                                  $links = array();
-
+                         
                                  foreach ( $terms as $term ) {
                                      $links[] = $term->name;
                                  }
-
-                                 $tax_links = join( " ", str_replace(' ', '-', $links));
+                         
+                                 $tax_links = join( " ", str_replace(' ', '-', $links));          
                                  $tax = strtolower($tax_links);
-                             else :
-                             $tax = '';
-                             endif;
+                             else : 
+                             $tax = '';                 
+                             endif; 
 
                                 $name = simple_fields_get_post_value($post->ID, 'Name', true);
                                 $position = simple_fields_get_post_value($post->ID, 'Position', true);
@@ -73,9 +73,9 @@ Template Name: Eboard Page Template
                                 $description = simple_fields_get_post_value($post->ID, 'Description', true);
                                 $pic_gif = simple_fields_values('pic_gif', $post->ID);
                                 $show_hide = simple_fields_get_post_value($post->ID, 'Show/Hide', true);
-
+                                
                                 if($show_hide == "Shown"){
-                                    /* Insert category name into portfolio-item class */
+                                    /* Insert category name into portfolio-item class */ 
                                     echo '<div class="all eboard_member-item '. $tax .'" data-category="'.$order_number.'">';
 
                                     /*the function simple_fields_get_post_value gets the data filled in on each member*/
@@ -90,7 +90,7 @@ Template Name: Eboard Page Template
                                 }
 
                           endwhile; ?>
-
+                         
                         </div>
                 </div><!--.article-container -->
 
@@ -108,14 +108,14 @@ Template Name: Eboard Page Template
 
           /*Follow Scrolling for the Menu*/
           var $container = $('#eboard_member'),
-
+         
           // create a clone that will be used for measuring container width
-          $containerProxy = $container.clone().empty().css({ visibility: 'hidden' });
+          $containerProxy = $container.clone().empty().css({ visibility: 'hidden' });   
           $container.after( $containerProxy );
-          var getWidth = Math.floor( $containerProxy.width());
+          var getWidth = Math.floor( $containerProxy.width());  
 
           if(getWidth > 726){
-             var $sidebar   = $("div#eboard_sidebar"),
+             var $sidebar   = $("div#eboard_sidebar"), 
               $window    = $(window),
               offset     = $sidebar.offset(),
               topPadding = 90;
@@ -133,14 +133,14 @@ Template Name: Eboard Page Template
               });
             }
 
-
-          /*ISOTOPE BELOW*/
-
+          
+          /*ISOTOPE BELOW*/ 
+         
             // get the first item to use for measuring columnWidth
           var $item = $container.find('.eboard_member-item').eq(0);
           $container.imagesLoaded(function(){
           $(window).smartresize( function() {
-
+         
             // calculate columnWidth
 
             if(getWidth > 1200){
@@ -161,10 +161,10 @@ Template Name: Eboard Page Template
                 width: colWidth * n // Change this number to your desired amount of columns
             })
             .isotope({
-
+         
               // disable automatic resizing when window is resized
               resizable: false,
-
+         
               // set columnWidth option for masonry
               layoutMode: 'fitRows',
               masonry: {
@@ -172,7 +172,7 @@ Template Name: Eboard Page Template
               },
 
             });
-
+         
             // trigger smartresize for first time
           }).smartresize();
            });
@@ -186,7 +186,7 @@ Template Name: Eboard Page Template
 
             sortBy: 'number',
           });
-
+         
 
         var selector = '.year-2014-2015';
         $container.isotope({ filter: selector, animationEngine : "css" });
@@ -201,7 +201,7 @@ Template Name: Eboard Page Template
             $('.eboard_year_label').text(year_label);
 
             return false;
-
+             
             });
         } ) ( jQuery );
     </script>

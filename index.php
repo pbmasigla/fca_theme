@@ -1,22 +1,5 @@
 <?php
 /**
-<<<<<<< HEAD
- * Front to the WordPress application. This file doesn't do anything, but loads
- * wp-blog-header.php which does and tells WordPress to load the theme.
- *
- * @package WordPress
- */
-
-/**
- * Tells WordPress to load the WordPress theme and output it.
- *
- * @var bool
- */
-define('WP_USE_THEMES', true);
-
-/** Loads the WordPress Environment and Template */
-require( dirname( __FILE__ ) . '/wp-blog-header.php' );
-=======
  * The main template file. Includes the loop.
  *
  *
@@ -140,4 +123,3 @@ require( dirname( __FILE__ ) . '/wp-blog-header.php' );
 </div><!--#main-wrapper"-->
 
 <?php do_action( '__after_main_wrapper' );##hook of the footer with get_get_footer ?>
->>>>>>> 48ceaf3c9b552950bbb555683a14a0a78e7a363c
