@@ -18,7 +18,7 @@ define('WP_USE_THEMES', true);
 require( dirname( __FILE__ ) . '/wp-blog-header.php' );
 =======
  * The main template file. Includes the loop.
- * Kris was here
+ *
  *
  * @package Customizr
  * @since Customizr 1.0
